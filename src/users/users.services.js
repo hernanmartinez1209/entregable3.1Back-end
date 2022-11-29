@@ -49,20 +49,31 @@ const patchUser = (req ,res) => {
       })
 }
 
-const deleteUser = () => {
-     const id = req.params.id
-     const {email,fisrt_Name,last_Name,password,bithday} = req.body
-     userControllers.deleteUser(id,{email,fisrt_Name,last_Name,password,bithday})
-     .then((data)=>{
-        if (data) {
-            res.status(200).json({message: 'Task Delete Succesfully'})
+const deleteUserxx = (res ,req) => {
+    const id = req.params.id
+
+    userControllers.deleteUsers(id)
+    .then((id)=> {
+        if (id) {
+            res.status(201).json({message: "ID encontrado"})
         }else{
             res.status(404).json({message: "ID Fond not"})
         }
-     })
-     .catch((err)=>{
-        res.status(400).json({message: err.message})
-     })
+    })
+    .catch(err => console.log(err))
+    //  const id = req.params.id
+    //  userControllers.deleteUsers(id)
+    //  .then((id)=> {
+    //      if (id) {
+    //         res.status(201).json({message: 'Task Delete Succesfully'})
+    //     }else{
+    //         res.status(404).json({message: "ID Fond not"})
+    //     }
+    //  })
+    //  .catch((err)=>{
+    //     res.status(400).json({message: err.message})
+    //   })
+     
 }
 
 module.exports = {
@@ -70,7 +81,7 @@ module.exports = {
     getUserById,
     postUser,
     patchUser,
-    deleteUser
+    deleteUserxx
 }
 
 

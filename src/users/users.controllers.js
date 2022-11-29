@@ -1,4 +1,5 @@
 // const { where } = require('sequelize')
+const { Sequelize, where } = require('sequelize')
 const user = require('../models/users.models')
 
 
@@ -39,21 +40,28 @@ const updateUser = async (id,obj) => {
     return data[0]
 }
 
-const deleteUser = async(id) => {
-    const data = await user.destroy({
+const deleteUsers = async(id) => {
+    const userId = user.destroy({
+      
         where:{
-            id: id
+           id:id
         }
     })
-    return data
+    // const userIdDelete = await user.destroy({
+    //     where:{
+    //         id:id
+    //     }
+    // })
+    //    return userIdDelete[0]
+  
+   return userId
 }
-
 module.exports = {
     findAllUsers,
     findUserById,
     createUser,
     updateUser,
-    deleteUser
+    deleteUsers
 }
 
 
