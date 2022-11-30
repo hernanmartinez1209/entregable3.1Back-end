@@ -1,7 +1,7 @@
 //!rutas que el profe da para ingresar
 // - localhost:9000/api/v1/users
 //     - localhost:9000/api/v1/users/:id
-
+//     - localhost:9000/api/v1/users/:id
 const router = require('express').Router()
 
 const userServices = require('./users.services')
