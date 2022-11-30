@@ -49,12 +49,12 @@ const patchUser = (req ,res) => {
       })
 }
 
-const deleteUserxx = (res ,req) => {
+const deleteUserxx = (req, res) => {
     const id = req.params.id
 
     userControllers.deleteUsers(id)
-    .then((id)=> {
-        if (id) {
+    .then((data)=> {
+        if (data) {
             res.status(201).json({message: "ID encontrado"})
         }else{
             res.status(404).json({message: "ID Fond not"})
